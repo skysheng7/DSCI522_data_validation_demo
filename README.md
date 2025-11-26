@@ -1,1 +1,1 @@
-# DSCI522_data_validation_demo
+# Data Validation Demo
