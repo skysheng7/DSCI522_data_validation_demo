@@ -2,7 +2,9 @@
 
 This repository contains instructions and code we use in UBC Master of Data Science DSCI 522 Lecture 4: Data Validation.
 
-Author & Instructor: Sky Sheng
+Instructor: Sky Sheng
+
+Author of original code & setup: Tiffany Timbers
 
 ## About
 
