@@ -17,3 +17,4 @@
 .npm/
 .jupyter/
 .ipython/
+.bash_history
