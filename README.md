@@ -1,6 +1,6 @@
 # Data Validation Demo
 
-This repository contains instructions and code we use in UBC Master of Data Science DSCI 522 Lecture 4: Data Validation.
+This repository contains instructions and code we use in UBC Master of Data Science DSCI 522 Lecture 4: Data Validation, and Lecture 5: Non-interactive Scripts.
 
 Instructor: Sky Sheng
 
