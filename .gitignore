@@ -18,3 +18,4 @@
 .jupyter/
 .ipython/
 .bash_history
+scripts/__pycache__/main_test.cpython-312.pyc
