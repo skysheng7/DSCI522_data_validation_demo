@@ -1,4 +1,3 @@
-# my_script.py
 print(f"__name__ is: {__name__}")
 
 def my_function():
