@@ -8,6 +8,14 @@ RUN conda update --quiet --file /tmp/conda-linux-64.lock \
     && fix-permissions "${CONDA_DIR}" \
     && fix-permissions "/home/${NB_USER}"
 
-# install deepchecks because conda does not install pip packages
+# change to root user to install deepchecks and build-essential
+USER root
+
 RUN pip install deepchecks==0.18.1 \
-    && sudo -n apt-get install build-essential
+    && apt-get update \
+    && apt-get install -y build-essential \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Switch back to jovyan user
+USER jovyan
