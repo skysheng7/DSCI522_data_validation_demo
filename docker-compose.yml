@@ -1,7 +1,7 @@
 services:
   # run jupyter notebook inside jupyter 
   jupyter-notebook:
-    image: skysheng7/dsci522:681bccb
+    image: skysheng7/dsci522:3aff360
     ports:
       - "8888:8888"
     volumes:
