@@ -10,7 +10,8 @@ import click
 @click.option('--name', prompt='Your name', help='The person to greet.')
 @click.option('--enthusiasm', type=click.Choice(['low', 'medium', 'high']), 
               default='medium', help='How enthusiastic should the otters be?')
-def greet_otters(count, name, enthusiasm):
+@click.option('--output', default='greetings.txt', help='Output file to append greetings to.')
+def greet_otters(count, name, enthusiasm, output):
     """ Otter greeting generator
     
     Simple program that has adorable otters greet NAME for COUNT times. 🦦
@@ -29,19 +30,22 @@ def greet_otters(count, name, enthusiasm):
         - 'medium': Friendly greeting with some emojis
         - 'high': Very excited greeting with lots of emojis and caps
         Default is 'medium'.
+    output : str
+        Path to the output file where greetings will be appended.
+        Default is 'greetings.txt'.
     
     Returns
     -------
     None
-        Outputs greetings directly to the console using click.echo().
+        Appends greetings to the specified output file.
     
     Examples
     --------
     Run from command line:
     
-    >>> python otter_greeting.py --name "Oyster" --count 3 --enthusiasm high
+    >>> python otter_greeting.py --name "Oyster" --count 3 --enthusiasm high --output greetings.txt
     
-    This will display 3 highly enthusiastic otter greetings for Oyster.
+    This will append 3 highly enthusiastic otter greetings for Oyster to greetings.txt.
     """
     # Different enthusiasm levels
     emojis = {
@@ -56,12 +60,12 @@ def greet_otters(count, name, enthusiasm):
         'high': f"HELLO {name.upper()}!!! Who is that lovely, amazing, genius friend over there?? The otters are SO excited to see you! 🎊"
     }
     
-    click.echo(f"\n{emojis[enthusiasm]} Otter Greetings Incoming! {emojis[enthusiasm]}\n")
-    
-    for i in range(count):
-        click.echo(f"  Otter #{i+1}: {messages[enthusiasm]}")
-    
-    click.echo(f"\n🦦 You've been greeted by {count} friendly otter(s)! 🦦\n")
+    # Open file in append mode, create if it doesn't exist
+    with open(output, 'a', encoding='utf-8') as f:
 
+        for i in range(count):
+            # Write each greeting as: name,enthusiasm,message
+            f.write(f"{name},{enthusiasm},{messages[enthusiasm]}\n")
+        
 if __name__ == '__main__':
     greet_otters()
