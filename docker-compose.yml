@@ -1,9 +1,6 @@
 services:
-  # run jupyter notebook inside jupyter 
   jupyter-notebook:
     image: skysheng7/dsci522:3aff360
-    ports:
-      - "8888:8888"
     volumes:
       - .:/home/jovyan
     deploy:
@@ -11,3 +8,6 @@ services:
         limits:
           memory: 5G
     platform: linux/amd64
+    entrypoint: /bin/bash
+    stdin_open: true  # -i
+    tty: true         # -t
